@@ -166,7 +166,7 @@ export const projectData = [
     name: "Done Today",
     description: "Track what you achieve every day. One thing at a time.",
     tech: ["NextJS", "React", "TypeScript", "TailwindCSS", "MongoDB"],
-    live: "https://done-today.xyz",
+    live: "https://done-today.vercel.app",
     category: "Web",
   },
   {
