@@ -1,23 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #f9f9f9;
-  /* light background */
-  --foreground: #101011;
-  /* text color */
-  --primary: #2563eb;
-  /* accent */
+  --background: #050505;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --muted: #a1a1aa;
+  --border: #18181b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .dark {
-  --background: #090909;
-  /* dark background */
-  --foreground: #f1f1f1;
-  /* light text */
+  --background: #050505;
+  --foreground: #ffffff;
   --primary: #3b82f6;
-  /* accent in dark */
 }
 
 
@@ -41,6 +45,31 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-150%);
+  }
+
+  100% {
+    transform: translateY(450%);
+  }
+}
+
+@keyframes slowPulse {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+.animate-pulse-slow {
+  animation: slowPulse 7s ease-in-out infinite;
 }
 
 .animate-fadeInUp {

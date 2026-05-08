@@ -66,7 +66,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
   ),
   projects: (
     <>
-      <div className="grid gap-4 md:grid-cols-2 max-w-5xl mx-auto">
+      <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto">
         {projectData.map((project, index) => (
           <div key={index} className="rounded-xl p-6 bg-white/20 dark:bg-black/30 shadow-xs border border-gray-300 dark:border-gray-800 text-left transition">
             <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
@@ -167,6 +167,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
         <li>skills</li>
         <li>contact</li>
         <li>glow on/off</li>
+        <li>settings ui landing/modular</li>
         <li className="text-blue-500 cursor-pointer hover:underline" onClick={() => setTerminalMode(false)}>gui</li>
         <li>clear</li>
         <li>help</li>

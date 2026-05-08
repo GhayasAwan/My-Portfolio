@@ -18,6 +18,8 @@ export const personalInfo = {
   college: "Dr. SGIT",
   collegeUrl: "https://drsgiet.ac.in/",
   avatarUrl: "/assets/ME.jpg",
+  status: "Available for work",
+  aboutText: "Full-stack engineer specializing in scalable systems and AI-driven solutions. Crafting high-performance digital products with precision and purpose.",
   aboutText1: "I’m Abdul Jaber, based in Andhra Pradesh, India. I graduated in Electronics and Communication Engineering from ",
   aboutText2: ". I design and build full-stack applications, with an increasing focus on Artificial Intelligence. My work focuses on building scalable systems, solving complex problems clearly, and delivering practical, real-world solutions.",
 };
@@ -86,32 +88,11 @@ export const facts = [
 
 export const timeline = [
   {
-    year: "2019",
+    year: "2026",
     detail:
-      "Started exploring electronics through hands-on DIY projects, focusing on transistor-based circuits and core components.",
+      "Focused on mastering advanced tools and preparing for professional opportunities.",
     more:
-      "Built a strong foundation by understanding how circuits behave at a fundamental level and experimenting with practical implementations.",
-  },
-  {
-    year: "2020",
-    detail:
-      "Discovered programming and web development using Termux on mobile.",
-    more:
-      "Learned core programming concepts, scripting, and built small automation projects to understand real-world applications.",
-  },
-  {
-    year: "2021",
-    detail:
-      "Developed multiple CLI-based projects to strengthen problem-solving and coding skills.",
-    more:
-      "Focused on writing efficient logic, improving debugging ability, and gaining confidence in building functional tools.",
-  },
-  {
-    year: "2023",
-    detail:
-      "Advanced into modern web development by building full-stack projects.",
-    more:
-      "Worked with frontend and backend technologies, integrating APIs and developing scalable applications.",
+      "Actively building production-level projects and seeking roles in full-stack development and AI-driven systems.",
   },
   {
     year: "2025",
@@ -121,11 +102,32 @@ export const timeline = [
       "Studied AI models, experimented with integrations, and built projects to enhance automation and intelligent features.",
   },
   {
-    year: "2026",
+    year: "2023",
     detail:
-      "Focused on mastering advanced tools and preparing for professional opportunities.",
+      "Advanced into modern web development by building full-stack projects.",
     more:
-      "Actively building production-level projects and seeking roles in full-stack development and AI-driven systems.",
+      "Worked with frontend and backend technologies, integrating APIs and developing scalable applications.",
+  },
+  {
+    year: "2021",
+    detail:
+      "Developed multiple CLI-based projects to strengthen problem-solving and coding skills.",
+    more:
+      "Focused on writing efficient logic, improving debugging ability, and gaining confidence in building functional tools.",
+  },
+  {
+    year: "2020",
+    detail:
+      "Discovered programming and web development using Termux on mobile.",
+    more:
+      "Learned core programming concepts, scripting, and built small automation projects to understand real-world applications.",
+  },
+  {
+    year: "2019",
+    detail:
+      "Started exploring electronics through hands-on DIY projects, focusing on transistor-based circuits and core components.",
+    more:
+      "Built a strong foundation by understanding how circuits behave at a fundamental level and experimenting with practical implementations.",
   },
 ];
 
@@ -167,6 +169,7 @@ export const projectData = [
     description: "Track what you achieve every day. One thing at a time.",
     tech: ["NextJS", "React", "TypeScript", "TailwindCSS", "MongoDB"],
     live: "https://done-today.vercel.app",
+    github: "https://github.com/donetoday-app/donetoday",
     category: "Web",
   },
   {

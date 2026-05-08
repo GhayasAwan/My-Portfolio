@@ -13,9 +13,10 @@ type Line = {
 
 type Props = {
   setTerminalMode: (v: boolean) => void;
+  setUiType: (v: "landing" | "modular") => void;
 };
 
-const TerminalMode = ({ setTerminalMode }: Props) => {
+const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
   const [history, setHistory] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [glow, setGlow] = useState(false);
@@ -71,6 +72,25 @@ const TerminalMode = ({ setTerminalMode }: Props) => {
       setTimeout(() => setTerminalMode(false), 500);
       return;
     }
+
+    if (trimmed.startsWith("settings")) {
+      const args = trimmed.split(" ");
+      const setting = args[1];
+      const value = args[2];
+
+      if (setting === "ui") {
+        if (value === "landing" || value === "modular") {
+          setUiType(value);
+          pushLine({ text: `UI set to ${value}`, type: "success" });
+        } else {
+          pushLine({ text: "❌ Invalid UI type. Use 'landing' or 'modular'.", type: "error" });
+        }
+      } else {
+        pushLine({ text: "Available settings: ui [landing|modular]", type: "info" });
+      }
+      return;
+    }
+
     if (trimmed.startsWith("themes")) {
       const args = trimmed.split(" ");
       const command = args[1];

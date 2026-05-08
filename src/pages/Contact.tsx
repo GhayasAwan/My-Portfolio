@@ -4,47 +4,71 @@ import { ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center px-2 sm:px-6 lg:px-8 pt-12 pb-24 min-h-screen text-foreground">
-      <motion.div className="w-full max-w-5xl backdrop-blur-sm rounded-2xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="w-full max-w-6xl"
+      >
+        <div className="flex flex-col items-center mb-12 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+          >
+            Get In Touch
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+          >
+            Let's build something great together. I'm always open to new opportunities and collaborations.
+          </motion.p>
+        </div>
 
-          {/* LEFT SIDE */}
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* LEFT SIDE - MESSAGE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-left space-y-5"
+            className="text-left space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Let’s build something <span className="text-blue-500 underline underline-offset-8 decoration-blue-500">great</span>
-            </h2>
+            <h3 className="text-3xl md:text-5xl font-black leading-tight text-white tracking-tighter">
+              Let’s build <span className="text-blue-600 text-glow">better</span> products.
+            </h3>
 
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-md">
-              Got an idea, opportunity, or just want to connect? I’m always open to meaningful conversations.
+            <p className="text-lg md:text-2xl text-zinc-400 font-medium max-w-md leading-relaxed">
+              Open for interesting opportunities or just a meaningful chat.
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
               <a
                 href="mailto:ajseven@outlook.in"
-                className="inline-block px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300"
+                className="px-6 py-3.5 rounded-full bg-white text-black font-black text-base transition-all duration-300 hover:bg-zinc-200 hover:-translate-y-1 flex items-center gap-2 group"
               >
-                Send Email →
+                Start a Conversation
               </a>
               <a
                 href={resume["full-stack-developer"]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 text-blue-600 border border-blue-500/40 dark:text-blue-400 rounded-xl font-semibold shadow-sm hover:shadow-md hover:bg-blue-600/20 dark:hover:bg-blue-500/20 hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-white border border-white/10 rounded-full font-black text-base hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
               >
-                View Resume <ArrowUpRight size={20} />
+                Resume <ArrowUpRight size={18} />
               </a>
             </div>
           </motion.div>
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col gap-4 w-full">
-            {contactItems.map(({ icon: Icon, label, value, href, color }, i) => {
+            {contactItems.map(({ icon: Icon, label, value, href }, i) => {
               const CardComponent = href ? motion.a : motion.div;
 
               return (
@@ -53,27 +77,27 @@ const Contact = () => {
                   href={href}
                   target={href ? "_blank" : undefined}
                   rel={href ? "noopener noreferrer" : undefined}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * i, duration: 0.4 }}
-                  className="group p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white/10 dark:bg-black/10 hover:border-blue-500/50 hover:bg-blue-50/50 dark:hover:bg-blue-900/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 w-full"
+                  className="group p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 flex items-center gap-5 w-full"
                 >
-                  <div className="p-3 sm:p-4 rounded-xl bg-white/50 dark:bg-black/20 shadow-sm border border-gray-100 dark:border-gray-800">
-                    <Icon className={`${color} group-hover:scale-110 transition-transform duration-300`} size={24} />
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-500">
+                    <Icon className="text-zinc-400 group-hover:text-blue-500 transition-colors" size={20} />
                   </div>
 
                   <div className="flex-1 flex flex-col items-start text-left">
-                    <p className="font-bold text-gray-900 dark:text-white text-base sm:text-lg mb-0.5">
+                    <p className="font-black text-zinc-500 uppercase tracking-widest text-[10px] mb-1">
                       {label}
                     </p>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                    <p className="text-base font-bold text-white group-hover:text-blue-500 transition-colors truncate w-full">
                       {value}
                     </p>
                   </div>
 
                   {href && (
-                    <div className="pr-2 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
-                      <ArrowUpRight size={22} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-zinc-600 group-hover:text-white transition-all duration-300">
+                      <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   )}
                 </CardComponent>

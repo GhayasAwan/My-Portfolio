@@ -1,17 +1,25 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Sun, Moon, Terminal, Code2, Github, Star } from "lucide-react";
-import { TypeAnimation } from "react-type-animation";
+import { Terminal, Code2, Github, Star } from "lucide-react";
 
 type Props = {
   terminalMode: boolean;
   setTerminalMode: (v: boolean) => void;
+  uiType?: "landing" | "modular";
+  setUiType?: (v: "landing" | "modular") => void;
 };
 
-const Navbar = ({ terminalMode, setTerminalMode }: Props) => {
-  const [darkMode, setDarkMode] = useState(false);
+const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => {
   const [stars, setStars] = useState<number | null>(null);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Fetch GitHub Stars
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     fetch("https://api.github.com/repos/aj-seven/aj-seven.me")
       .then((res) => res.json())
@@ -23,119 +31,81 @@ const Navbar = ({ terminalMode, setTerminalMode }: Props) => {
       .catch((err) => console.error("Failed to fetch repo stars", err));
   }, []);
 
-  // Load theme & mode on mount
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const storedMode = localStorage.getItem("ui-mode");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
-
-    if (storedMode === "cli") {
-      setTerminalMode(true);
-    }
-  }, [setTerminalMode]);
-
-  // Save theme
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
-
-  // Save UI mode
-  useEffect(() => {
-    localStorage.setItem("ui-mode", terminalMode ? "cli" : "gui");
-  }, [terminalMode]);
-
-  const handleThemeToggle = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const handleTerminalToggle = () => {
-    setTerminalMode(!terminalMode);
-  };
-
   return (
     <nav
-      className={`w-full fixed top-0 left-0 z-50 border-b border-gray-300 dark:border-gray-800 transition duration-300 ${terminalMode
-        ? "bg-black/80 text-green-400 border-green-800 glow-nav"
-        : "bg-background/70 backdrop-blur-sm text-foreground border-gray-300 dark:border-gray-700"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${terminalMode ? "py-0" : scrolled ? "py-3" : "py-4"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-3 py-2.5 flex items-center justify-between">
-        {/* Logo Section */}
+      <div className={`mx-auto transition-all duration-500 ${terminalMode ? "max-w-full px-0 mt-2" : "max-w-7xl px-2 sm:px-4 lg:px-6"
+        }`}>
         <div
-          className={`flex items-center gap-1 text-xl md:text-2xl font-bold transition-all duration-300 group ${terminalMode ? "text-green-400" : "text-primary"
+          className={`relative flex items-center justify-between px-2 sm:px-4 transition-all duration-500 ${terminalMode
+            ? "bg-black text-green-400 border-b border-green-500/30 rounded-none py-2"
+            : `py-3 rounded-2xl border ${scrolled
+              ? "bg-black/80 backdrop-blur-xl border-white/10 shadow-2xl"
+              : "bg-transparent border-transparent"
+            }`
             }`}
         >
-          {terminalMode ? (
-            <a href="/">
-              <Terminal className="w-7 h-7 md:w-7 md:h-7 text-green-500 transition-transform duration-300 hover:scale-110" />
-            </a>
-          ) : (
-            <a href="/">
-              <Code2 className="w-7 h-7 md:w-7 md:h-7 text-blue-500 dark:text-yellow-400 transition-transform duration-300 hover:scale-110" />
-            </a>
-          )}
-
-          <TypeAnimation
-            key={terminalMode ? "terminal" : "normal"} // Force re-render on mode switch
-            sequence={
-              terminalMode
-                ? ["$ whoami", 2000, "visitor@aj-seven", 2000]
-                : ["aj-seven", 2000, "Developer", 2000]
-            }
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            className={
-              terminalMode
-                ? "text-green-400"
-                : "text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500 dark:from-yellow-300 dark:to-orange-400"
-            }
-          />
-        </div>
-
-        {/* Controls */}
-        <div className="flex p-2 border border-gray-400 dark:border-gray-600 rounded-full items-center gap-4">
-          {/* Theme Toggle - Hidden in Terminal Mode */}
-          <a
-            href="https://github.com/aj-seven/aj-seven.me"
-            target="_blank"
-            title="Source Code"
-            className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
-          >
-            <Github size={20} />
-            {stars !== null && (
-              <span className="flex items-center text-sm font-semibold ml-1">
-                <Star size={16} className="text-yellow-400 fill-yellow-400 mr-1 animate-star drop-shadow-[0_0_6px_rgba(250,204,21,0.8)]" />
-                {stars}
-              </span>
-            )}
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2 group">
+            <div className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-white/10 bg-white/5 group-hover:border-blue-500/50"
+              }`}>
+              {terminalMode ? (
+                <Terminal size={22} className="text-green-500" />
+              ) : (
+                <Code2 size={22} className="text-blue-500" />
+              )}
+            </div>
+            <span className="font-black text-xl tracking-tighter uppercase text-white">
+              AJ<span className="text-zinc-500 group-hover:text-blue-500 transition-colors">SEVEN</span>
+            </span>
           </a>
-          {!terminalMode && (
-            <button
-              onClick={handleThemeToggle}
-              title="Toggle Theme"
-              className="transition-transform duration-300 relative z-10"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-          )}
 
-          {/* Terminal Toggle */}
-          <button
-            onClick={handleTerminalToggle}
-            title="Toggle Terminal Mode"
-            className="transition-transform duration-300 relative z-10"
-          >
-            <Terminal size={20} />
-          </button>
+          {/* Controls */}
+          <div className="flex items-center gap-2">
+            {/* UI Toggle (Mini) */}
+            {/* {setUiType && (
+              <button
+                onClick={() => setUiType(uiType === "landing" ? "modular" : "landing")}
+                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-white"
+                title={`Switch to ${uiType === "landing" ? "Modular" : "Landing"} UI`}
+              >
+                {uiType === "landing" ? (
+                  <><LayoutGrid size={12} /> Modular</>
+                ) : (
+                  <><ScrollText size={12} /> Landing</>
+                )}
+              </button>
+            )}
+
+            <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" /> */}
+
+            <a
+              href="https://github.com/aj-seven/aj-seven.me"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
+            >
+              <Github size={22} className="text-zinc-400 group-hover:text-white transition-colors" />
+              {stars !== null && (
+                <span className="flex items-center text-base font-black text-zinc-500 group-hover:text-white transition-colors">
+                  <Star size={18} className="text-yellow-500 fill-yellow-500 mr-1" />
+                  {stars}
+                </span>
+              )}
+            </a>
+
+            <button
+              onClick={() => setTerminalMode(!terminalMode)}
+              className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode
+                ? "border-green-500/50 bg-green-500/20 text-green-400"
+                : "border-white/5 bg-white/5 text-zinc-400 hover:text-white hover:border-white/20"
+                }`}
+              title="Toggle Terminal"
+            >
+              <Terminal size={22} />
+            </button>
+          </div>
         </div>
       </div>
     </nav>

@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { facts, timeline, personalInfo } from "../data/userData";
 import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const About = () => {
   const [expandedIds, setExpandedIds] = useState<Record<number, boolean>>({});
@@ -12,110 +13,130 @@ const About = () => {
   };
 
   return (
-    <section
-      id="about"
-      className="w-full flex flex-col items-center justify-center px-2 sm:px-6 lg:px-8 pt-12 pb-24 min-h-screen text-foreground"
-    >
-      <motion.div className="w-full max-w-5xl backdrop-blur-sm rounded-2xl text-center">
-        {/* Section Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold mb-4 underline underline-offset-4 decoration-blue-500"
-        >
-          Who Am I
-        </motion.h2>
+    <section id="about" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-24 min-h-screen text-foreground relative z-10 scroll-mt-32">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="w-full max-w-6xl"
+      >
+        <div className="flex flex-col items-center mb-12 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+          >
+            Who Am I
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+          >
+            A chronological journey through professional evolution and engineering milestones.
+          </motion.p>
+        </div>
 
         {/* Intro */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 leading-relaxed"
-        >
-          {personalInfo.aboutText1}
-          <a
-            href={personalInfo.collegeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary font-semibold hover:underline"
-          >
-            {personalInfo.college}
-          </a>
-          {personalInfo.aboutText2}
-        </motion.p>
-
-        {/* Facts */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-wrap max-w-2xl mx-auto justify-center gap-3 mb-4"
-        >
-          {facts.map((fact, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="px-4 py-2 rounded-xl text-sm md:text-base font-medium border border-gray-200 dark:border-gray-700/60 bg-white/10 dark:bg-black/10 hover:border-blue-500/50 hover:bg-white/20 dark:hover:bg-black/20 transition-all duration-300 text-foreground shadow-sm"
+        <div className="grid lg:grid-cols-5 gap-12 items-start mb-12">
+          <div className="lg:col-span-3">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-base md:text-xl lg:text-2xl text-zinc-400 leading-relaxed font-medium"
             >
-              {fact}
-            </motion.div>
-          ))}
-        </motion.div>
+              {personalInfo.aboutText1}
+              <a
+                href={personalInfo.collegeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
+              >
+                {personalInfo.college}
+              </a>
+              {personalInfo.aboutText2}
+            </motion.p>
+          </div>
 
-        {/* Timeline */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-2xl md:text-3xl font-bold mb-2 underline underline-offset-4 decoration-blue-500"
-        >
-          Timeline
-        </motion.h3>
-        <div className="max-w-2xl mx-auto text-left relative border-l-2 border-blue-500/30 ml-4 md:ml-6 mt-4">
+          <div className="lg:col-span-2 flex flex-wrap gap-2">
+            {facts.map((fact, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-white/5 bg-white/[0.02] text-zinc-500 hover:text-white hover:border-blue-500/30 transition-all duration-300"
+              >
+                {fact}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Timeline Header */}
+        <div className="flex flex-col items-center mb-12 text-center">
+          <h3 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em]">
+            Timeline
+          </h3>
+          <div className="h-px w-24 bg-blue-600/30" />
+        </div>
+
+        {/* Timeline Grid */}
+        <div className="max-w-3xl mx-auto text-left relative border-l border-white/10 ml-4 md:mx-auto pl-8">
           {timeline.map((item, i) => {
-            // Check if "more" exists dynamically since typing isn't strict here.
             const hasMore = "more" in item && typeof item.more === "string";
 
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="mb-8 ml-6 relative group last:mb-0"
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="mb-10 relative group last:mb-0"
               >
                 {/* Node Dot */}
-                <span className="absolute flex h-4 w-4 rounded-full bg-blue-500 ring-4 ring-gray-100 dark:ring-[#090909] -left-[33px] top-1.5 transition-transform duration-300 group-hover:scale-125 shadow-sm" />
+                <span className="absolute flex h-4 w-4 rounded-full bg-black border-2 border-blue-600 -left-[41px] top-1.5 transition-all duration-500 group-hover:bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.3)]" />
 
-                <div className="bg-white/10 dark:bg-black/10 p-5 rounded-xl border border-gray-200 dark:border-gray-700/60 transition-all hover:border-blue-500/50 hover:shadow-md group-hover:-translate-y-1 duration-300">
-                  <div className="text-primary font-bold text-lg mb-2 flex items-center gap-2">
+                <div className="flex flex-col gap-2">
+                  <span className="text-xs font-black text-zinc-500 uppercase tracking-widest">
                     {item.year}
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed inline">
-                    {item.detail}
-                    {hasMore && (
-                      expandedIds[i] ? (
-                        <span className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-                          {item.more}
-                          <button
-                            onClick={() => toggleExpand(i)}
-                            className="ml-2 text-red-500 hover:text-red-700 font-bold text-md align-middle transition"
-                          >
-                            {"><"}
-                          </button>
-                        </span>
-                      ) : (
-                        <button
-                          onClick={() => toggleExpand(i)}
-                          className="ml-2 text-green-500 hover:text-green-700 font-bold text-md align-middle transition"
+                  </span>
+
+                  <div className="p-4 rounded-3xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500 relative overflow-hidden">
+                    <p className="text-lg md:text-xl font-bold text-white leading-relaxed">
+                      {item.detail}
+                    </p>
+
+                    <AnimatePresence>
+                      {expandedIds[i] && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="text-zinc-500 mt-2 text-base leading-relaxed"
                         >
-                          {"<>"}
-                        </button>
-                      )
+                          {item.more}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+
+                    {hasMore && (
+                      <button
+                        onClick={() => toggleExpand(i)}
+                        className="mt-4 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:text-blue-400 transition-colors"
+                      >
+                        {expandedIds[i] ? (
+                          <><Minus size={14} /> Show Less</>
+                        ) : (
+                          <><Plus size={14} /> Read Insight</>
+                        )}
+                      </button>
                     )}
-                  </p>
+                  </div>
                 </div>
               </motion.div>
             );
