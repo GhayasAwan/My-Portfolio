@@ -48,7 +48,15 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             }`}
         >
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
+          <a
+            href="/"
+            onClick={(e) => {
+              if (terminalMode) {
+                e.preventDefault();
+              }
+            }}
+            className="flex items-center gap-2 group"
+          >
             <div className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-white/10 bg-white/5 group-hover:border-blue-500/50"
               }`}>
               {terminalMode ? (
@@ -57,8 +65,8 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
                 <Code2 size={22} className="text-blue-500" />
               )}
             </div>
-            <span className="font-black text-xl tracking-tighter uppercase text-white">
-              AJ<span className="text-zinc-500 group-hover:text-blue-500 transition-colors">SEVEN</span>
+            <span className="font-black text-xl tracking-tighter uppercase text-white flex items-baseline">
+              AJ<span className={`text-[15px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>SEVEN</span>
             </span>
           </a>
 
