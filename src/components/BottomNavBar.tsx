@@ -58,7 +58,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl px-2 py-2 shadow-2xl pointer-events-auto">
+      <nav className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
         <div className="flex items-center gap-1 sm:gap-2 px-1">
           {navItems.map((item) => {
             const isActive = item.id === activeSection;
