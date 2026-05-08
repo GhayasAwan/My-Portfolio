@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   HomeIcon,
   Info,
@@ -80,12 +80,28 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                   : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                   }`}
               >
-                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+                <div className="flex items-center gap-2">
+                  <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+                  <AnimatePresence mode="wait">
+                    {isActive && (
+                      <motion.span
+                        initial={{ width: 0, opacity: 0 }}
+                        animate={{ width: "auto", opacity: 1 }}
+                        exit={{ width: 0, opacity: 0 }}
+                        className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap overflow-hidden"
+                      >
+                        {item.name}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* Tooltip */}
-                <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/5 whitespace-nowrap">
-                  {item.name}
-                </span>
+                {!isActive && (
+                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/5 whitespace-nowrap">
+                    {item.name}
+                  </span>
+                )}
 
                 {/* Active Indicator */}
                 {isActive && (
