@@ -12,13 +12,24 @@ import Contact from "./pages/Contact";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
-  const [terminalMode, setTerminalMode] = useState(false);
+  const [terminalMode, setTerminalMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("terminal-mode") === "true";
+    }
+    return false;
+  });
+  
   const [uiType, setUiType] = useState<"landing" | "modular">(() => {
     if (typeof window !== "undefined") {
       return (localStorage.getItem("ui-type") as "landing" | "modular") || "landing";
     }
     return "landing";
   });
+
+  const handleTerminalToggle = (value: boolean) => {
+    setTerminalMode(value);
+    localStorage.setItem("terminal-mode", String(value));
+  };
 
   const [activeTab, setActiveTab] = useState("home");
 
@@ -43,7 +54,7 @@ const App = () => {
       <GlobalBackground />
       <Navbar
         terminalMode={terminalMode}
-        setTerminalMode={setTerminalMode}
+        setTerminalMode={handleTerminalToggle}
         uiType={uiType}
         setUiType={handleUiToggle}
       />
@@ -83,7 +94,7 @@ const App = () => {
         </main>
       ) : (
         <TerminalMode
-          setTerminalMode={setTerminalMode}
+          setTerminalMode={handleTerminalToggle}
           setUiType={handleUiToggle}
         />
       )}
