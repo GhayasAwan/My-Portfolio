@@ -1,24 +1,24 @@
 {
-  "name": "Aj7 Portfolio",
-  "short_name": "Aj7",
-  "description": "Aj7 Portfolio - Personal website and portfolio of Abdul Jaber.",
+  "name": "GhayasAwan.me",
+  "short_name": "GhayasAwan",
+  "description": "Ghayas Awan - Software Engineer portfolio.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#0B1220",
+  "theme_color": "#14B8A6",
   "orientation": "portrait",
   "scope": "/",
   "lang": "en",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/assets/Logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

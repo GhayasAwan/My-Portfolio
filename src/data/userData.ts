@@ -1,234 +1,212 @@
 import {
   Github,
   Linkedin,
-  Link2Icon,
+  Mail,
+  MapPin,
+  MessageCircle,
 } from "lucide-react";
 
 export const personalInfo = {
-  name: "Abdul Jaber",
-  alias: "Aj7",
-  shortAlias: "AJ",
-  location: "Andhra Pradesh, India",
-  role: "Full Stack Developer",
+  name: "Ghayas Awan",
+  alias: "Ghayas",
+  shortAlias: "GA",
+  location: "Peshawar, Pakistan",
+  role: "Software Engineer",
   roles: [
-    "Full Stack Developer",
-    "Tech Explorer",
-    "Linux Enthusiast",
+    "Software Engineer",
+    "UI/UX Designer",
+    "Prompt Engineer",
   ],
-  college: "Dr. SGIT",
-  collegeUrl: "https://drsgiet.ac.in/",
-  avatarUrl: "/assets/ME.jpg",
-  status: "Available for work",
-  aboutText: "Full-stack engineer specializing in scalable systems and AI-driven solutions. Crafting high-performance digital products with precision and purpose.",
-  aboutText1: "I’m Abdul Jaber, based in Andhra Pradesh, India. I graduated in Electronics and Communication Engineering from ",
-  aboutText2: ". I design and build full-stack applications, with an increasing focus on Artificial Intelligence. My work focuses on building scalable systems, solving complex problems clearly, and delivering practical, real-world solutions.",
+  email: "ghayasawan662@gmail.com",
+  phone: "03189684905",
+  githubUrl: "https://github.com/GhayasAwan",
+  linkedinUrl: "https://www.linkedin.com/in/ghayas-awan-a056333a1/",
+  portfolioUrl: "",
+  college: "",
+  collegeUrl: "",
+  avatarUrl: "/assets/ghayas-awan-hero.jpeg",
+  status: "Available for Work | Open to Internships",
+  aboutText: "Software Engineer passionate about building modern, responsive, and user-friendly web applications.",
+  aboutText1: "I am a passionate Software Engineer who enjoys building modern, responsive, and user-friendly web applications. ",
+  aboutText2: "I love transforming ideas into functional digital experiences through clean code and thoughtful design. Along with web development, I have experience in UI/UX design, prompt engineering, video editing, social media management, and event management. I am always eager to learn new technologies, improve my skills, and work on projects that solve real-world problems. My goal is to continuously grow as a developer while creating impactful and high-quality digital solutions.",
 };
+
+export const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`;
+export const whatsappChatUrl = "https://api.whatsapp.com/send?phone=923189684905&text=Hi%20Ghayas%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.";
 
 // removed react-icons
 export const fetchData = [
-  { label: "User", value: "aj7@garuda" },
-  { label: "OS", value: "Garuda Linux Broadwing x86_64" },
-  { label: "Host", value: "ASUS TUF Gaming F15 FX506HF" },
-  { label: "Kernel", value: "6.14.2-zen1-1-zen" },
-  { label: "Packages", value: "1519 (pacman)" },
-  { label: "Shell", value: "zsh 5.9" },
-  { label: "CPU", value: "i5-11400H (12) @ 4.50GHz" },
-  { label: "GPU", value: "Intel UHD + RTX 2050" },
-  { label: "Memory", value: "15725MiB" },
-  { label: "Peak Uptime", value: "13 hour's" },
+  { label: "User", value: "ghayas@portfolio" },
+  { label: "Role", value: "Software Engineer" },
+  { label: "Location", value: "Peshawar, Pakistan" },
+  { label: "Email", value: "ghayasawan662@gmail.com" },
+  { label: "GitHub", value: "github.com/GhayasAwan" },
+  { label: "LinkedIn", value: "linkedin.com/in/ghayas-awan-a056333a1" },
 ];
 
 export const skills = [
   {
     category: "Frontend",
     items: [
+      { name: "HTML", icon: "https://cdn.simpleicons.org/html5" },
+      { name: "CSS", icon: "https://cdn.simpleicons.org/css" },
+      { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
       { name: "React", icon: "https://cdn.simpleicons.org/react" },
-      { name: "Vite", icon: "https://cdn.simpleicons.org/vite" },
-      { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs", invertDark: true },
-      { name: "Shadcn-UI", icon: "https://cdn.simpleicons.org/shadcnui", invertDark: true },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
-    ],
-  },
-  {
-    category: "Mobile",
-    items: [
-      { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter" },
+      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
+      { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap" },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs" },
-      { name: "Express.js", icon: "https://cdn.simpleicons.org/express", invertDark: true },
-      { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb" },
+      { name: "PHP", icon: "https://cdn.simpleicons.org/php" },
+      { name: "SQLite", icon: "https://cdn.simpleicons.org/sqlite" },
       { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql" },
-      { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
+    ],
+  },
+  {
+    category: "Languages",
+    items: [
+      { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
+      { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus" },
     ],
   },
   {
     category: "Tools",
     items: [
       { name: "Git", icon: "https://cdn.simpleicons.org/git" },
-      { name: "Python", icon: "https://cdn.simpleicons.org/python" },
-      { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
-      { name: "Prisma", icon: "https://cdn.simpleicons.org/prisma", invertDark: true },
-      { name: "Redux/Zustand", icon: "https://cdn.simpleicons.org/redux" },
+      { name: "GitHub", icon: "https://cdn.simpleicons.org/github", invertDark: true },
+      { name: "VS Code", icon: "/assets/vscode-logo.svg" },
+      { name: "Figma", icon: "https://cdn.simpleicons.org/figma" },
+      { name: "Canva", icon: "/assets/canva-logo.svg" },
+      { name: "CapCut", icon: "/assets/capcut-logo.svg", darkTile: true },
+    ],
+  },
+  {
+    category: "Other Skills",
+    items: [
+      { name: "Responsive Web Design", icon: "https://cdn.simpleicons.org/googlechrome" },
+      { name: "UI/UX Design", icon: "https://cdn.simpleicons.org/figma" },
+      { name: "Video Editing", icon: "/assets/capcut-logo.svg", darkTile: true },
+      { name: "Social Media", icon: "https://cdn.simpleicons.org/instagram" },
+      { name: "Prompt Engineering", icon: "/assets/prompt-engineering-logo.svg" },
+      { name: "Event Management", icon: "https://cdn.simpleicons.org/googlecalendar" },
     ],
   },
 ];
 
 export const facts = [
-  "Student",
-  "Passion for tech",
-  "Learner",
-  "Linux Enthusiast",
-  "Full Stack Developer",
+  "Software Engineer",
+  "Responsive Web Design",
+  "UI/UX Design",
+  "Prompt Engineering",
+  "Video Editing",
+  "Social Media Management",
+  "Event Management",
+  "Open to Internships",
 ];
 
 export const timeline = [
   {
     year: "2026",
     detail:
-      "Focused on mastering advanced tools and preparing for professional opportunities.",
+      "Earned a Soft Skills certification from Pakistan Software Export Board.",
     more:
-      "Actively building production-level projects and seeking roles in full-stack development and AI-driven systems.",
+      "Strengthened professional communication, collaboration, and workplace readiness skills while continuing to grow as a developer.",
   },
+];
+
+export const certifications = [
   {
-    year: "2025",
-    detail:
-      "Began exploring Artificial Intelligence and its practical applications.",
-    more:
-      "Studied AI models, experimented with integrations, and built projects to enhance automation and intelligent features.",
+    name: "Soft Skills",
+    issuer: "Pakistan Software Export Board (PSEB)",
+    year: "2026",
   },
+];
+
+export const education = [
   {
-    year: "2023",
-    detail:
-      "Advanced into modern web development by building full-stack projects.",
-    more:
-      "Worked with frontend and backend technologies, integrating APIs and developing scalable applications.",
+    degree: "Bachelor of Software Engineering (BSSE)",
+    institute: "City University of Science & Information Technology",
+    years: "2023 - 2027",
+    details:
+      "Currently pursuing a Bachelor's degree in Software Engineering with a focus on software development, web development, databases, and modern programming technologies.",
   },
+];
+
+export const experience = [
   {
-    year: "2021",
-    detail:
-      "Developed multiple CLI-based projects to strengthen problem-solving and coding skills.",
-    more:
-      "Focused on writing efficient logic, improving debugging ability, and gaining confidence in building functional tools.",
-  },
-  {
-    year: "2020",
-    detail:
-      "Discovered programming and web development using Termux on mobile.",
-    more:
-      "Learned core programming concepts, scripting, and built small automation projects to understand real-world applications.",
-  },
-  {
-    year: "2019",
-    detail:
-      "Started exploring electronics through hands-on DIY projects, focusing on transistor-based circuits and core components.",
-    more:
-      "Built a strong foundation by understanding how circuits behave at a fundamental level and experimenting with practical implementations.",
+    role: "Software Engineer (Student)",
+    company: "Zynvex IT and Solutions",
+    years: "2026 - Present",
+    location: "Pakistan",
+    responsibilities: [
+      "Developing responsive and user-friendly web applications.",
+      "Designing modern UI/UX interfaces using Figma.",
+      "Building frontend applications with HTML, CSS, JavaScript, React, and Tailwind CSS.",
+      "Developing backend functionality using PHP.",
+      "Managing source code with Git and GitHub.",
+      "Creating digital content and supporting branding through video editing and social media management.",
+    ],
   },
 ];
 
 export const contactItems = [
   {
+    icon: Mail,
+    label: "Email",
+    value: "ghayasawan662@gmail.com",
+    href: gmailComposeUrl,
+    color: "text-blue-500",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    value: "+92 318 9684905",
+    href: whatsappChatUrl,
+    color: "text-green-500",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Peshawar, Pakistan",
+    href: "",
+    color: "text-red-500",
+  },
+  {
     icon: Github,
     label: "GitHub",
-    value: "github.com/aj-seven",
-    href: "https://github.com/aj-seven",
+    value: "github.com/GhayasAwan",
+    href: "https://github.com/GhayasAwan",
     color: "text-foreground",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/ajseven",
-    href: "https://www.linkedin.com/in/ajseven",
+    value: "linkedin.com/in/ghayas-awan-a056333a1",
+    href: "https://www.linkedin.com/in/ghayas-awan-a056333a1/",
     color: "text-blue-600",
-  },
-  {
-    icon: Link2Icon,
-    label: "Discord",
-    value: "Discord",
-    href: "https://discord.com/users/.ajseven",
-    color: "text-indigo-500",
   },
 ];
 
 export const projectData = [
   {
-    name: "AI-Hub",
-    description: "AI Hub - Multi-model assistant for content and chat.",
-    tech: ["NextJS", "React", "TypeScript", "TailwindCSS", "Shadcn", "Tauri"],
-    live: "https://ai-hubx.vercel.app/",
-    github: "https://github.com/aj-seven/ai-hub",
-    category: "Web",
+    name: "VirtualFit",
+    description: "A premium frontend-only e-commerce and virtual fashion trial room prototype featuring a Three.js-powered 3D virtual try-on experience and a seller product dashboard.",
+    tech: ["React", "Vite", "Three.js", "Tailwind CSS", "Lucide Icons"],
+    category: "WebGL / E-Commerce",
+    github: "https://github.com/GhayasAwan/3d-product-project",
   },
   {
-    name: "Done Today",
-    description: "Track what you achieve every day. One thing at a time.",
-    tech: ["NextJS", "React", "TypeScript", "TailwindCSS", "MongoDB"],
-    live: "https://done-today.vercel.app",
-    github: "https://github.com/donetoday-app/donetoday",
-    category: "Web",
-  },
-  {
-    name: "Landing Page",
-    description: "Simple Landing Page.",
-    tech: [
-      "NextJS",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Shadcn",
-      "Framer-motion",
-    ],
-    live: "https://landing-page-ajseven.vercel.app",
-    github: "https://github.com/aj-seven/landing-page",
-    category: "Web",
-  },
-  {
-    name: "PostalMapper",
-    description:
-      "A digital address card generator based on postal code with QR support, export options. Built with React & Tailwind.",
-    tech: ["React", "TailwindCSS", "QRCode"],
-    live: "https://postal-mapper.vercel.app",
-    github: "https://github.com/aj-seven/postal-mapper",
-    category: "Web",
-  },
-  {
-    name: "Sketchify",
-    description: "Convert Images to sketches with Adjustable effects.",
-    tech: ["React", "TailwindCSS", "Canvas"],
-    live: "https://sketchify-app.vercel.app",
-    github: "https://github.com/aj-seven/sketchify",
-    category: "Web",
-  },
-  {
-    name: "Task Quest",
-    description: "A simple yet modern task tracker built for productivity.",
-    tech: ["React", "TailwindCSS"],
-    live: "https://task-quest.pages.dev",
-    github: "https://github.com/aj-seven/task-quest",
-    category: "Web",
-  },
-  {
-    name: "Color Tailor",
-    description: "A color palette generator built with React & Tailwind.",
-    tech: ["React", "TailwindCSS", "chroma-js"],
-    live: "https://color-tailor.vercel.app",
-    github: "https://github.com/aj-seven/color-tailor",
-    category: "Web",
-  },
-  {
-    name: "Android-Sysinfo",
-    description: "A tool that efficiently displays Android system details.",
-    tech: ["Linux", "Termux", "Android"],
-    github: "https://github.com/aj-seven/Android-Sysinfo",
-    category: "CLI",
+    name: "Solvia Codes",
+    description: "A modern, interactive agency portfolio showcasing custom software engineering, WebGL integrations, responsive UI/UX, and growth-focused marketing solutions.",
+    tech: ["React", "Vite", "Three.js", "Framer Motion", "Tailwind CSS", "Lucide Icons"],
+    category: "Web Application",
+    github: "https://github.com/GhayasAwan/Solvia-Codes",
+    live: "https://www.solvia.codes/",
   },
 ];
 
 export const resume = {
-  "full-stack-developer": "https://rxresu.me/aj-seven/full-stack-developer",
+  "software-engineer": "/assets/ghayas-awan-cv.pdf",
 };

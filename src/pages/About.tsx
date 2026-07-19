@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { facts, timeline, personalInfo } from "../data/userData";
+import { certifications, education, experience, facts, timeline, personalInfo } from "../data/userData";
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
@@ -50,14 +50,16 @@ const About = () => {
               className="text-base md:text-xl lg:text-2xl text-zinc-400 leading-relaxed font-medium"
             >
               {personalInfo.aboutText1}
-              <a
-                href={personalInfo.collegeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
-              >
-                {personalInfo.college}
-              </a>
+              {personalInfo.college && personalInfo.collegeUrl && (
+                <a
+                  href={personalInfo.collegeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-500 underline decoration-blue-500/30 transition-colors"
+                >
+                  {personalInfo.college}
+                </a>
+              )}
               {personalInfo.aboutText2}
             </motion.p>
           </div>
@@ -72,6 +74,106 @@ const About = () => {
                 className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest border border-white/5 bg-white/[0.02] text-zinc-500 hover:text-white hover:border-blue-500/30 transition-all duration-300"
               >
                 {fact}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education */}
+        <div className="mb-16">
+          <div className="flex flex-col items-center mb-8 text-center">
+            <h3 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em]">
+              Education
+            </h3>
+            <div className="h-px w-24 bg-blue-600/30" />
+          </div>
+
+          <div className="grid gap-4 max-w-3xl mx-auto">
+            {education.map((item, i) => (
+              <motion.div
+                key={`${item.degree}-${item.institute}`}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left"
+              >
+                <p className="text-xs font-black text-zinc-500 uppercase tracking-widest mb-2">
+                  {item.years}
+                </p>
+                <h4 className="text-xl font-bold text-white mb-2">{item.degree}</h4>
+                <p className="text-blue-500 font-bold mb-3">{item.institute}</p>
+                <p className="text-zinc-400 leading-relaxed">{item.details}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Experience */}
+        <div className="mb-16">
+          <div className="flex flex-col items-center mb-8 text-center">
+            <h3 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em]">
+              Experience
+            </h3>
+            <div className="h-px w-24 bg-blue-600/30" />
+          </div>
+
+          <div className="grid gap-4 max-w-3xl mx-auto">
+            {experience.map((item, i) => (
+              <motion.div
+                key={`${item.role}-${item.company}`}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left"
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+                  <div>
+                    <h4 className="text-xl font-bold text-white">{item.role}</h4>
+                    <p className="text-blue-500 font-bold">{item.company}</p>
+                  </div>
+                  <div className="text-left md:text-right">
+                    <p className="text-xs font-black text-zinc-500 uppercase tracking-widest">
+                      {item.years}
+                    </p>
+                    <p className="text-sm text-zinc-500 font-medium">{item.location}</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-zinc-400 leading-relaxed">
+                  {item.responsibilities.map((responsibility) => (
+                    <li key={responsibility} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                      <span>{responsibility}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Certifications */}
+        <div className="mb-16">
+          <div className="flex flex-col items-center mb-8 text-center">
+            <h3 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em]">
+              Certifications
+            </h3>
+            <div className="h-px w-24 bg-blue-600/30" />
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto">
+            {certifications.map((cert, i) => (
+              <motion.div
+                key={`${cert.name}-${cert.issuer}`}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 text-left"
+              >
+                <p className="text-xs font-black text-zinc-500 uppercase tracking-widest mb-2">
+                  {cert.year}
+                </p>
+                <h4 className="text-xl font-bold text-white mb-2">{cert.name}</h4>
+                <p className="text-zinc-400 font-medium">{cert.issuer}</p>
               </motion.div>
             ))}
           </div>

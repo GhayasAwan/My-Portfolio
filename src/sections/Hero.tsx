@@ -1,7 +1,7 @@
 "use client";
-import { Send } from "lucide-react";
+import { Download, Send } from "lucide-react";
 import { motion } from "framer-motion";
-import { personalInfo, contactItems } from "../data/userData";
+import { personalInfo, contactItems, resume } from "../data/userData";
 
 type HeroProps = {
   onTabChange?: (tab: string) => void;
@@ -18,10 +18,27 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
     >
       {/* Background Branding */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-70">
-        <span className="text-[18rem] md:text-[28rem] font-black text-white/[0.09] select-none tracking-[-0.07em]">
-          {personalInfo.shortAlias}
-        </span>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-[0.08] select-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" className="w-[20rem] md:w-[32rem] h-[20rem] md:h-[32rem]" fill="none">
+          <defs>
+            <linearGradient id="bg-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#00F0FF" />
+              <stop offset="100%" stopColor="#0072FF" />
+            </linearGradient>
+          </defs>
+          <g>
+            <path d="M 230 140 A 110 110 0 1 0 250 350 A 110 110 0 0 0 320 280 L 250 280" 
+                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 215 190 A 60 60 0 1 0 220 300" 
+                  fill="none" stroke="#38BDF8" strokeWidth="12" strokeLinecap="round" />
+            <path d="M 305 155 L 235 345" 
+                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" />
+            <path d="M 305 155 L 375 330 A 15 15 0 0 1 365 350 A 15 15 0 0 1 350 345 L 340 320" 
+                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M 250 280 L 338 280" 
+                  fill="none" stroke="url(#bg-cyan)" strokeWidth="20" stroke-linecap="round" />
+          </g>
+        </svg>
       </div>
 
       {/* Left Content */}
@@ -72,21 +89,24 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-4 pt-4"
         >
-          <div className="flex items-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
-              href="#projects"
-              onClick={(e) => {
-                if (uiType === "modular" && onTabChange) {
-                  e.preventDefault();
-                  onTabChange("projects");
-                } else {
-                  e.preventDefault();
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              href="https://www.solvia.codes"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white text-black font-black text-base hover:bg-zinc-100 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
             >
-              Selected Works
+              Solvia Codes
+            </a>
+
+            <a
+              href={resume["software-engineer"]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full border border-blue-500/40 bg-blue-500/10 text-blue-300 font-black text-base hover:bg-blue-600 hover:text-white active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/10"
+            >
+              Resume
+              <Download className="group-hover:translate-y-0.5 transition-transform" size={18} />
             </a>
 
             <a
@@ -111,7 +131,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           <div className="flex items-center gap-6 sm:gap-5 pt-2 sm:pt-0">
             <div className="h-5 w-px bg-white/10 hidden sm:block" />
             {contactItems
-              .filter((i) => ["GitHub", "LinkedIn", "Discord"].includes(i.label))
+              .filter((i) => ["GitHub", "LinkedIn", "Email"].includes(i.label))
               .map((item, idx) => (
                 <a
                   key={idx}
@@ -129,36 +149,22 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       </div>
 
       {/* Right: Avatar */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 1 }}
-        className="relative flex-shrink-0"
-      >
-        <div className="relative group">
+      <div className="relative flex-shrink-0">
+        <div className="relative">
           {/* Corner Accents */}
-          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 z-20 transition-transform group-hover:rotate-12" />
-          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12" />
+          <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 z-20" />
+          <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20" />
 
           {/* Avatar Container */}
-          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
+          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
             <img
               src={personalInfo.avatarUrl}
               alt={personalInfo.name}
-              className="w-full h-full object-cover scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover object-[50%_38%]"
             />
-
-            {/* Overlay Effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-black/30 group-hover:via-transparent transition-all duration-700" />
-
-            {/* Scan Line */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent h-[3px] w-full -translate-y-full group-hover:animate-[scan_3.5s_linear_infinite] pointer-events-none" />
           </div>
-
-          {/* Glow */}
-          <div className="absolute -inset-12 bg-blue-500/10 blur-[90px] rounded-full -z-10 opacity-0 group-hover:opacity-80 transition-opacity duration-700" />
         </div>
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

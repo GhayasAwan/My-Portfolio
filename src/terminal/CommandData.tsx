@@ -33,7 +33,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
                 rel="noopener noreferrer"
                 className="hover:underline text-primary font-bold"
               >
-                aj-seven
+                GhayasAwan
               </a>
             </span>
             <span className="font-semibold flex flex-row items-center gap-1">
@@ -52,14 +52,16 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
       </div>
       <div>
         {personalInfo.aboutText1}
-        <a
-          href={personalInfo.collegeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary font-bold hover:underline"
-        >
-          {personalInfo.college}
-        </a>
+        {personalInfo.college && personalInfo.collegeUrl && (
+          <a
+            href={personalInfo.collegeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary font-bold hover:underline"
+          >
+            {personalInfo.college}
+          </a>
+        )}
         {personalInfo.aboutText2}
       </div>
     </div>

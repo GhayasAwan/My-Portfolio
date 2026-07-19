@@ -1,16 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Terminal, Code2, Github, Star } from "lucide-react";
+import { Terminal, Code2, Github, Star, Moon, Sun } from "lucide-react";
+import { personalInfo } from "../data/userData";
 
 type Props = {
   terminalMode: boolean;
   setTerminalMode: (v: boolean) => void;
   uiType?: "landing" | "modular";
   setUiType?: (v: "landing" | "modular") => void;
+  theme: "dark" | "light";
+  onThemeToggle: () => void;
 };
 
-const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => {
+const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThemeToggle }: Props) => {
   const [stars, setStars] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,14 +24,14 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
   }, []);
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/aj-seven/aj-seven.me")
+    fetch("https://api.github.com/users/GhayasAwan")
       .then((res) => res.json())
       .then((data) => {
-        if (typeof data.stargazers_count === "number") {
-          setStars(data.stargazers_count);
+        if (typeof data.public_repos === "number") {
+          setStars(data.public_repos);
         }
       })
-      .catch((err) => console.error("Failed to fetch repo stars", err));
+      .catch((err) => console.error("Failed to fetch GitHub profile", err));
   }, []);
 
   return (
@@ -67,7 +70,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
             </div>
             <div className="relative">
               <span className="font-black text-2xl tracking-tighter uppercase text-white flex items-baseline">
-                AJ<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>SEVEN</span>
+                Ghayas<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>Awan</span>
               </span>
               <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
             </div>
@@ -75,25 +78,8 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
 
           {/* Controls */}
           <div className="flex items-center gap-2">
-            {/* UI Toggle (Mini) */}
-            {/* {setUiType && (
-              <button
-                onClick={() => setUiType(uiType === "landing" ? "modular" : "landing")}
-                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-white"
-                title={`Switch to ${uiType === "landing" ? "Modular" : "Landing"} UI`}
-              >
-                {uiType === "landing" ? (
-                  <><LayoutGrid size={12} /> Modular</>
-                ) : (
-                  <><ScrollText size={12} /> Landing</>
-                )}
-              </button>
-            )}
-
-            <div className="h-4 w-px bg-white/10 mx-1 hidden sm:block" /> */}
-
             <a
-              href="https://github.com/aj-seven/aj-seven.me"
+              href={personalInfo.githubUrl}
               target="_blank"
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
             >
@@ -105,6 +91,17 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => 
                 </span>
               )}
             </a>
+
+            {!terminalMode && (
+              <button
+                onClick={onThemeToggle}
+                className="p-2 rounded-xl border border-white/5 bg-white/5 text-zinc-400 hover:text-white hover:border-white/20 hover:bg-white/10 transition-all duration-300"
+                title={`Switch to ${theme === "dark" ? "Light" : "Dark"} Theme`}
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+              >
+                {theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}
+              </button>
+            )}
 
             <button
               onClick={() => setTerminalMode(!terminalMode)}

@@ -12,6 +12,13 @@ import Contact from "./pages/Contact";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window !== "undefined") {
+      return (localStorage.getItem("site-theme") as "dark" | "light") || "dark";
+    }
+    return "dark";
+  });
+
   const [terminalMode, setTerminalMode] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("terminal-mode") === "true";
@@ -38,6 +45,12 @@ const App = () => {
     localStorage.setItem("ui-type", type);
   };
 
+  const handleThemeToggle = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem("site-theme", nextTheme);
+  };
+
   const renderModularUI = () => {
     switch (activeTab) {
       case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
@@ -50,13 +63,15 @@ const App = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#050505] text-white relative">
-      <GlobalBackground />
+    <div className={`w-full min-h-screen bg-background text-foreground relative ${theme} theme-${theme}`}>
+      <GlobalBackground theme={theme} />
       <Navbar
         terminalMode={terminalMode}
         setTerminalMode={handleTerminalToggle}
         uiType={uiType}
         setUiType={handleUiToggle}
+        theme={theme}
+        onThemeToggle={handleThemeToggle}
       />
 
       {!terminalMode ? (

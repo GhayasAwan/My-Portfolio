@@ -1,0 +1,18 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="900" fill="#0B1220"/>
+  <rect x="1" y="1" width="898" height="898" stroke="#1E293B" stroke-width="2"/>
+  <circle cx="450" cy="450" r="300" fill="#14B8A6" fill-opacity="0.12"/>
+  <circle cx="450" cy="450" r="205" fill="#38BDF8" fill-opacity="0.1"/>
+  <text
+    x="450"
+    y="505"
+    text-anchor="middle"
+    font-family="Inter, Arial, sans-serif"
+    font-size="230"
+    font-weight="900"
+    letter-spacing="-14"
+    fill="#E5E7EB"
+  >GA</text>
+  <path d="M230 640H670" stroke="#14B8A6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M288 695H612" stroke="#38BDF8" stroke-opacity="0.42" stroke-width="8" stroke-linecap="round"/>
+</svg>

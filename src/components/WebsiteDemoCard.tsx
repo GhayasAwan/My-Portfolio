@@ -1,4 +1,8 @@
-const WebsiteDemoCard = ({ demoUrl }) => {
+type WebsiteDemoCardProps = {
+  demoUrl?: string;
+};
+
+const WebsiteDemoCard = ({ demoUrl }: WebsiteDemoCardProps) => {
   const handleClick = () => {
     if (demoUrl) {
       window.open(demoUrl, "_blank");

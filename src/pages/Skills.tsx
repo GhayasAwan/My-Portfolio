@@ -56,7 +56,7 @@ const Skills = () => {
                     transition={{ delay: index * 0.05, duration: 0.3 }}
                     className="group flex flex-col items-center gap-2 p-2 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300"
                   >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl ${"darkTile" in item && item.darkTile ? "capcut-icon-tile p-2" : ""}`}>
                       <img
                         src={item.icon}
                         alt={item.name}
