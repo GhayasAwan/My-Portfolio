@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <defs>
+    <filter id="neon-glow-fav" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0072FF" />
+    </linearGradient>
+  </defs>
+  <g filter="url(#neon-glow-fav)" transform="translate(-31, -31) scale(0.38)">
+    <!-- Outer 'G' Loop -->
+    <path d="M 230 140 A 110 110 0 1 0 250 350 A 110 110 0 0 0 320 280 L 250 280" 
+          fill="none" stroke="url(#cyan-glow)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Inner 'G' Curve -->
+    <path d="M 215 190 A 60 60 0 1 0 220 300" 
+          fill="none" stroke="#38BDF8" stroke-width="12" stroke-linecap="round" />
+    <!-- 'A' Left leg -->
+    <path d="M 305 155 L 235 345" 
+          fill="none" stroke="url(#cyan-glow)" stroke-width="24" stroke-linecap="round" />
+    <!-- 'A' Right leg -->
+    <path d="M 305 155 L 375 330 A 15 15 0 0 1 365 350 A 15 15 0 0 1 350 345 L 340 320" 
+          fill="none" stroke="url(#cyan-glow)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- 'A' Crossbar -->
+    <path d="M 250 280 L 338 280" 
+          fill="none" stroke="url(#cyan-glow)" stroke-width="20" stroke-linecap="round" />
+  </g>
+</svg>
