@@ -1,17 +1,20 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="128" height="128" rx="28" fill="#0B1220"/>
-  <rect x="3" y="3" width="122" height="122" rx="25" stroke="#334155" stroke-width="2" opacity="0.6"/>
+  <rect x="3" y="3" width="122" height="122" rx="25" stroke="#14B8A6" stroke-width="2" stroke-opacity="0.4"/>
   <defs>
-    <linearGradient id="silver-metal-fav" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F8FAFC" />
-      <stop offset="45%" stop-color="#CBD5E1" />
-      <stop offset="100%" stop-color="#64748B" />
+    <linearGradient id="theme-teal-cyan-fav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#14B8A6" />
+    </linearGradient>
+    <linearGradient id="theme-sky-blue-fav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
     </linearGradient>
   </defs>
   <g transform="translate(6, 22) scale(0.23)">
-    <!-- G (White) -->
-    <path d="M 195 70 C 120 70 65 115 65 180 C 65 245 120 290 195 290 C 255 290 285 255 288 210 L 195 210 L 195 180 L 315 180 L 315 220 C 310 275 260 320 190 320 C 95 320 30 250 30 180 C 30 110 95 40 195 40 C 235 40 270 55 295 80 L 270 105 C 250 85 225 70 195 70 Z" fill="#FFFFFF" />
-    <!-- A (Silver) -->
-    <path d="M 335 50 L 375 50 L 460 280 L 418 280 L 396 220 L 250 220 L 250 190 L 386 190 L 355 100 L 318 190 L 285 280 L 245 280 L 335 50 Z" fill="url(#silver-metal-fav)" />
+    <!-- G (Teal/Cyan) -->
+    <path d="M 195 70 C 120 70 65 115 65 180 C 65 245 120 290 195 290 C 255 290 285 255 288 210 L 195 210 L 195 180 L 315 180 L 315 220 C 310 275 260 320 190 320 C 95 320 30 250 30 180 C 30 110 95 40 195 40 C 235 40 270 55 295 80 L 270 105 C 250 85 225 70 195 70 Z" fill="url(#theme-teal-cyan-fav)" />
+    <!-- A (Sky Blue) -->
+    <path d="M 335 50 L 375 50 L 460 280 L 418 280 L 396 220 L 250 220 L 250 190 L 386 190 L 355 100 L 318 190 L 285 280 L 245 280 L 335 50 Z" fill="url(#theme-sky-blue-fav)" />
   </g>
 </svg>
