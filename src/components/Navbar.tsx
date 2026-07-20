@@ -82,10 +82,10 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
               )}
             </div>
             <div className="relative">
-              <span className="font-black text-2xl tracking-tighter uppercase text-white flex items-baseline">
-                Ghayas<span className={`text-[17px] ml-0.5 transition-colors ${terminalMode ? "text-zinc-500 group-hover:text-green-500" : "text-zinc-500 group-hover:text-blue-500"}`}>Awan</span>
+              <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase text-white flex items-center gap-1.5">
+                Ghayas<span className="text-white">Awan</span>
               </span>
-              <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]"}`} />
+              <div className={`absolute -bottom-0.5 left-0 h-1 rounded-full transition-all duration-300 w-0 group-hover:w-full ${terminalMode ? "bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" : "bg-teal-400 shadow-[0_0_10px_rgba(20,184,166,0.5)]"}`} />
             </div>
           </a>
 
