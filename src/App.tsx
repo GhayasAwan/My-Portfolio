@@ -80,11 +80,11 @@ const App = () => {
             <Routes>
               <Route path="/" element={
                 <>
-                  <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
-                  <section id="about"><About /></section>
-                  <section id="projects"><Projects limit={4} /></section>
-                  <section id="skills"><Skills /></section>
-                  <section id="contact"><Contact /></section>
+                  <Hero uiType={uiType} onTabChange={setActiveTab} />
+                  <About />
+                  <Projects limit={6} />
+                  <Skills />
+                  <Contact />
                   <BottomNavBar />
                 </>
               } />
