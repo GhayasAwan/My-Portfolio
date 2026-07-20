@@ -60,12 +60,12 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
             }}
             className="flex items-center gap-2 group"
           >
-            <div className={`p-2 rounded-xl border transition-all duration-300 ${terminalMode ? "border-green-500/50 bg-green-500/10" : "border-white/10 bg-white/5 group-hover:border-blue-500/50"
-              }`}>
               {terminalMode ? (
-                <Terminal size={22} className="text-green-500" />
+                <div className="p-2 rounded-xl border border-green-500/50 bg-green-500/10">
+                  <Terminal size={22} className="text-green-500" />
+                </div>
               ) : (
-                <svg width="22" height="22" viewBox="0 0 500 350" fill="none" className="w-5 h-5">
+                <svg width="28" height="28" viewBox="0 0 500 350" fill="none" className="w-7 h-7 transform group-hover:scale-110 transition-transform">
                   <defs>
                     <linearGradient id="nav-g" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#00F0FF" />
@@ -80,7 +80,6 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
                   <path d="M 335 50 L 375 50 L 460 280 L 418 280 L 396 220 L 250 220 L 250 190 L 386 190 L 355 100 L 318 190 L 285 280 L 245 280 L 335 50 Z" fill="url(#nav-a)" />
                 </svg>
               )}
-            </div>
             <div className="relative">
               <span className="font-black text-xl sm:text-2xl tracking-tighter uppercase text-white flex items-center gap-1.5">
                 Ghayas<span className="text-white">Awan</span>
