@@ -65,7 +65,10 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
               {terminalMode ? (
                 <Terminal size={22} className="text-green-500" />
               ) : (
-                <Code2 size={22} className="text-blue-500" />
+                <svg width="22" height="22" viewBox="0 0 500 350" fill="none" className="w-5 h-5">
+                  <path d="M 195 70 C 120 70 65 115 65 180 C 65 245 120 290 195 290 C 255 290 285 255 288 210 L 195 210 L 195 180 L 315 180 L 315 220 C 310 275 260 320 190 320 C 95 320 30 250 30 180 C 30 110 95 40 195 40 C 235 40 270 55 295 80 L 270 105 C 250 85 225 70 195 70 Z" fill="#FFFFFF" />
+                  <path d="M 335 50 L 375 50 L 460 280 L 418 280 L 396 220 L 250 220 L 250 190 L 386 190 L 355 100 L 318 190 L 285 280 L 245 280 L 335 50 Z" fill="#CBD5E1" />
+                </svg>
               )}
             </div>
             <div className="relative">

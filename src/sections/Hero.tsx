@@ -18,25 +18,13 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
     >
       {/* Background Branding */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-[0.08] select-none">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" className="w-[20rem] md:w-[32rem] h-[20rem] md:h-[32rem]" fill="none">
-          <defs>
-            <linearGradient id="bg-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00F0FF" />
-              <stop offset="100%" stopColor="#0072FF" />
-            </linearGradient>
-          </defs>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-[0.09] select-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" className="w-[22rem] md:w-[36rem] h-[15rem] md:h-[25rem]" fill="none">
           <g>
-            <path d="M 230 140 A 110 110 0 1 0 250 350 A 110 110 0 0 0 320 280 L 250 280" 
-                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M 215 190 A 60 60 0 1 0 220 300" 
-                  fill="none" stroke="#38BDF8" strokeWidth="12" strokeLinecap="round" />
-            <path d="M 305 155 L 235 345" 
-                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" />
-            <path d="M 305 155 L 375 330 A 15 15 0 0 1 365 350 A 15 15 0 0 1 350 345 L 340 320" 
-                  fill="none" stroke="url(#bg-cyan)" strokeWidth="24" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M 250 280 L 338 280" 
-                  fill="none" stroke="url(#bg-cyan)" strokeWidth="20" stroke-linecap="round" />
+            {/* G (White) */}
+            <path d="M 195 70 C 120 70 65 115 65 180 C 65 245 120 290 195 290 C 255 290 285 255 288 210 L 195 210 L 195 180 L 315 180 L 315 220 C 310 275 260 320 190 320 C 95 320 30 250 30 180 C 30 110 95 40 195 40 C 235 40 270 55 295 80 L 270 105 C 250 85 225 70 195 70 Z" fill="#FFFFFF" />
+            {/* A (Silver) */}
+            <path d="M 335 50 L 375 50 L 460 280 L 418 280 L 396 220 L 250 220 L 250 190 L 386 190 L 355 100 L 318 190 L 285 280 L 245 280 L 335 50 Z" fill="#CBD5E1" />
           </g>
         </svg>
       </div>
