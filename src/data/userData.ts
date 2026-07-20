@@ -6,6 +6,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+const getAsset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
 export const personalInfo = {
   name: "Ghayas Awan",
   alias: "Ghayas",
@@ -24,7 +26,7 @@ export const personalInfo = {
   portfolioUrl: "",
   college: "",
   collegeUrl: "",
-  avatarUrl: `${import.meta.env.BASE_URL}assets/ghayas-awan-hero.jpeg`,
+  avatarUrl: getAsset('assets/ghayas-awan-hero.jpeg'),
   status: "Available for Work | Open to Internships",
   aboutText: "Software Engineer passionate about building modern, responsive, and user-friendly web applications.",
   aboutText1: "I am a passionate Software Engineer who enjoys building modern, responsive, and user-friendly web applications. ",
@@ -34,7 +36,6 @@ export const personalInfo = {
 export const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${personalInfo.email}`;
 export const whatsappChatUrl = "https://api.whatsapp.com/send?phone=923189684905&text=Hi%20Ghayas%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.";
 
-// removed react-icons
 export const fetchData = [
   { label: "User", value: "ghayas@portfolio" },
   { label: "Role", value: "Software Engineer" },
@@ -76,10 +77,10 @@ export const skills = [
     items: [
       { name: "Git", icon: "https://cdn.simpleicons.org/git" },
       { name: "GitHub", icon: "https://cdn.simpleicons.org/github", invertDark: true },
-      { name: "VS Code", icon: "/assets/vscode-logo.svg" },
+      { name: "VS Code", icon: getAsset('assets/vscode-logo.svg') },
       { name: "Figma", icon: "https://cdn.simpleicons.org/figma" },
-      { name: "Canva", icon: "/assets/canva-logo.svg" },
-      { name: "CapCut", icon: "/assets/capcut-logo.svg", darkTile: true },
+      { name: "Canva", icon: getAsset('assets/canva-logo.svg') },
+      { name: "CapCut", icon: getAsset('assets/capcut-logo.svg'), darkTile: true },
     ],
   },
   {
@@ -87,9 +88,9 @@ export const skills = [
     items: [
       { name: "Responsive Web Design", icon: "https://cdn.simpleicons.org/googlechrome" },
       { name: "UI/UX Design", icon: "https://cdn.simpleicons.org/figma" },
-      { name: "Video Editing", icon: "/assets/capcut-logo.svg", darkTile: true },
+      { name: "Video Editing", icon: getAsset('assets/capcut-logo.svg'), darkTile: true },
       { name: "Social Media", icon: "https://cdn.simpleicons.org/instagram" },
-      { name: "Prompt Engineering", icon: "/assets/prompt-engineering-logo.svg" },
+      { name: "Prompt Engineering", icon: getAsset('assets/prompt-engineering-logo.svg') },
       { name: "Event Management", icon: "https://cdn.simpleicons.org/googlecalendar" },
     ],
   },
@@ -208,5 +209,5 @@ export const projectData = [
 ];
 
 export const resume = {
-  "software-engineer": "/assets/ghayas-awan-cv.pdf",
+  "software-engineer": getAsset('assets/ghayas-awan-cv.pdf'),
 };
