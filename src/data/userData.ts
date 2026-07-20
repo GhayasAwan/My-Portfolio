@@ -206,6 +206,13 @@ export const projectData = [
     github: "https://github.com/GhayasAwan/Solvia-Codes",
     live: "https://www.solvia.codes/",
   },
+  {
+    name: "Student LMS",
+    description: "A full-featured Learning Management System built with PHP and MySQL featuring role-based dashboards (Admin, Instructor, Student), course management, assignment grading, attendance tracking, and timetable scheduling.",
+    tech: ["PHP", "MySQL", "Bootstrap 5", "JavaScript", "HTML5"],
+    category: "Full-Stack Web App",
+    github: "https://github.com/GhayasAwan/student_lms",
+  },
 ];
 
 export const resume = {
