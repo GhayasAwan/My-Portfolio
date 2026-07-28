@@ -158,11 +158,12 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             <picture>
               <source srcSet={personalInfo.avatarUrl} type="image/webp" />
               <img
-                src={personalInfo.avatarUrl.replace(/\.webp$/, '.jpeg')}
+                src={personalInfo.avatarUrl}
                 alt={personalInfo.name}
                 width="380"
                 height="506"
                 fetchPriority="high"
+                {...{ fetchpriority: "high" }}
                 loading="eager"
                 decoding="async"
                 className="w-full h-full object-cover object-[50%_38%]"
