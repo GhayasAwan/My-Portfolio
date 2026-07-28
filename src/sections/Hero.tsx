@@ -157,7 +157,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
             <picture>
               <source media="(max-width: 640px)" srcSet={personalInfo.avatarUrl.replace(/\.webp$/, '-mobile.webp')} type="image/webp" />
-              <source srcSet={personalInfo.avatarUrl} type="image/webp" />
+              <source srcSet={`${personalInfo.avatarUrl} 1x, ${personalInfo.avatarUrl.replace(/\.webp$/, '@2x.webp')} 2x`} type="image/webp" />
               <img
                 src={personalInfo.avatarUrl}
                 alt={personalInfo.name}
