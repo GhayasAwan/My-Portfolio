@@ -57,27 +57,17 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           </motion.div>
 
           {/* Name & Role */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white"
-          >
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
             <span className="block">{personalInfo.name}</span>
             <span className="block text-zinc-500 text-3xl sm:text-5xl lg:text-7xl">
               {personalInfo.role}
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg"
-          >
+          <p className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg">
             {personalInfo.aboutText}
-          </motion.p>
+          </p>
         </div>
 
         {/* Actions */}
