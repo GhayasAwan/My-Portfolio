@@ -10,11 +10,8 @@ type HeroProps = {
 
 const Hero = ({ onTabChange, uiType }: HeroProps) => {
   return (
-    <motion.section
+    <section
       id="home"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
       className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
     >
       {/* Background Branding */}
@@ -43,18 +40,13 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
       <div className="flex-1 text-left max-w-2xl space-y-4 relative z-10">
         <div className="space-y-4">
           {/* Status */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             {personalInfo.status}
-          </motion.div>
+          </div>
 
           {/* Name & Role */}
           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white">
@@ -71,12 +63,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
         </div>
 
         {/* Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-4 pt-4"
-        >
+        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
               href="https://www.solvia.codes"
@@ -133,7 +120,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                 </a>
               ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Right: Avatar */}
@@ -163,7 +150,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
