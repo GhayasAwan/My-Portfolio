@@ -149,7 +149,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
               <source media="(max-width: 640px)" srcSet={personalInfo.avatarUrl.replace(/\.webp$/, '-mobile.webp')} type="image/webp" />
               <source srcSet={`${personalInfo.avatarUrl} 1x, ${personalInfo.avatarUrl.replace(/\.webp$/, '@2x.webp')} 2x`} type="image/webp" />
               <img
-                src={personalInfo.avatarUrl}
+                src={personalInfo.avatarUrl.replace(/\.webp$/, '-mobile.webp')}
                 alt={personalInfo.name}
                 width="380"
                 height="506"
