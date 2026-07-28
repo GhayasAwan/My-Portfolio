@@ -44,11 +44,8 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
         .catch((err) => console.error("Failed to fetch GitHub profile", err));
     };
 
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(fetchGitHub, { timeout: 3000 });
-    } else {
-      setTimeout(fetchGitHub, 1500);
-    }
+    const timer = setTimeout(fetchGitHub, 4000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
