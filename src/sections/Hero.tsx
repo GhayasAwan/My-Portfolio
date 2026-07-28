@@ -155,16 +155,19 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
 
           {/* Avatar Container */}
           <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
-            <img
-              src={personalInfo.avatarUrl}
-              alt={personalInfo.name}
-              width="380"
-              height="506"
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover object-[50%_38%]"
-            />
+            <picture>
+              <source srcSet={personalInfo.avatarUrl} type="image/webp" />
+              <img
+                src={personalInfo.avatarUrl.replace(/\.webp$/, '.jpeg')}
+                alt={personalInfo.name}
+                width="380"
+                height="506"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover object-[50%_38%]"
+              />
+            </picture>
           </div>
         </div>
       </div>
