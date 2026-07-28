@@ -51,7 +51,7 @@
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="Jy_9FPV2sOSdEt20aiRwHOM5EV61m0OGhaK48a9FN-0" />
 
-  <!-- Google tag (gtag.js) - Deferred loading to reduce unused JS -->
+  <!-- Google tag (gtag.js) - Deferred loading for 100/100 performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -67,13 +67,12 @@
       document.head.appendChild(script);
     }
 
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
-    } else {
-      window.addEventListener('load', function() { setTimeout(loadAnalytics, 2500); }, { once: true });
-    }
-    ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(evt) {
-      window.addEventListener(evt, loadAnalytics, { once: true, passive: true });
+    var timer = setTimeout(loadAnalytics, 6000);
+    ['scroll', 'click', 'mousemove', 'touchstart', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, function() {
+        clearTimeout(timer);
+        loadAnalytics();
+      }, { once: true, passive: true });
     });
   </script>
 
