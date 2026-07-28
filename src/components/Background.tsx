@@ -19,9 +19,9 @@ const GlobalBackground = ({ theme = "dark" }: GlobalBackgroundProps) => {
       />
       
       {/* Central Atmosphere Glow */}
-      <div className={`absolute top-1/2 left-1/2 w-[60%] h-[60%] blur-[120px] rounded-full animate-pulse-slow ${isLight ? "bg-teal-200/45" : "bg-teal-500/16"}`} />
-      <div className={`absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full blur-[120px] ${isLight ? "bg-sky-200/55" : "bg-sky-400/12"}`} />
-      <div className={`absolute bottom-[-18%] left-[-8%] h-[460px] w-[460px] rounded-full blur-[130px] ${isLight ? "bg-emerald-100/65" : "bg-emerald-400/10"}`} />
+      <div className={`absolute top-1/2 left-1/2 w-[60%] h-[60%] blur-[50px] md:blur-[120px] rounded-full animate-pulse-slow will-change-transform ${isLight ? "bg-teal-200/45" : "bg-teal-500/16"}`} />
+      <div className={`absolute -top-24 right-[-10%] h-[280px] w-[280px] md:h-[420px] md:w-[420px] rounded-full blur-[50px] md:blur-[120px] will-change-transform ${isLight ? "bg-sky-200/55" : "bg-sky-400/12"}`} />
+      <div className={`absolute bottom-[-18%] left-[-8%] h-[300px] w-[300px] md:h-[460px] md:w-[460px] rounded-full blur-[60px] md:blur-[130px] will-change-transform ${isLight ? "bg-emerald-100/65" : "bg-emerald-400/10"}`} />
       
       {/* Radial Vignette */}
       <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] ${isLight ? "from-transparent via-[#eef6f8]/70 to-[#dcecf0] opacity-95" : "from-transparent via-slate-950/34 to-[#0b1220] opacity-90"}`} />
