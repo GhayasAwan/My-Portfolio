@@ -92,7 +92,7 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
               href="https://www.solvia.codes"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white text-black font-black text-base hover:bg-zinc-100 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white !text-zinc-950 font-black text-base hover:bg-zinc-200 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
             >
               Solvia Codes
             </a>

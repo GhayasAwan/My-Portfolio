@@ -39,30 +39,30 @@ body {
 }
 
 .theme-dark .text-white {
-  color: #e5e7eb;
+  color: #f8fafc;
 }
 
 .theme-dark .text-black {
-  color: #f8fafc;
+  color: #09090b;
 }
 
 .theme-dark .text-zinc-300,
 .theme-dark .text-zinc-400 {
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 .theme-dark .text-zinc-500,
 .theme-dark .text-zinc-600 {
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .theme-dark .bg-white {
-  background-color: #14b8a6;
+  background-color: #ffffff;
 }
 
 .theme-dark .hover\:bg-zinc-100:hover,
 .theme-dark .hover\:bg-zinc-200:hover {
-  background-color: #0f766e;
+  background-color: #f1f5f9;
 }
 
 .theme-dark [class*="bg-black/"],
