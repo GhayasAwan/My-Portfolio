@@ -158,6 +158,11 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             <img
               src={personalInfo.avatarUrl}
               alt={personalInfo.name}
+              width="380"
+              height="506"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover object-[50%_38%]"
             />
           </div>

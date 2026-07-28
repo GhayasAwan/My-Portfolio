@@ -26,7 +26,7 @@ export const personalInfo = {
   portfolioUrl: "",
   college: "",
   collegeUrl: "",
-  avatarUrl: getAsset('assets/ghayas-awan-hero.jpeg'),
+  avatarUrl: getAsset('assets/ghayas-awan-hero.webp'),
   status: "Available for Work | Open to Internships",
   aboutText: "Software Engineer passionate about building modern, responsive, and user-friendly web applications.",
   aboutText1: "I am a passionate Software Engineer who enjoys building modern, responsive, and user-friendly web applications. ",
