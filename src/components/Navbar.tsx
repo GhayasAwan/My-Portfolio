@@ -67,6 +67,7 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
           {/* Logo */}
           <a
             href="/"
+            aria-label="Ghayas Awan Homepage"
             onClick={(e) => {
               if (terminalMode) {
                 e.preventDefault();
@@ -107,14 +108,19 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
             <a
               href={personalInfo.githubUrl}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              title="GitHub Profile"
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-all group"
             >
               <Github size={22} className="text-zinc-400 group-hover:text-white transition-colors" />
-              {stars !== null && (
+              {stars !== null ? (
                 <span className="flex items-center text-base font-black text-zinc-500 group-hover:text-white transition-colors">
                   <Star size={18} className="text-yellow-500 fill-yellow-500 mr-1" />
                   {stars}
                 </span>
+              ) : (
+                <span className="sr-only">GitHub</span>
               )}
             </a>
 
