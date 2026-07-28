@@ -49,36 +49,36 @@ export const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "HTML", icon: "https://cdn.simpleicons.org/html5" },
-      { name: "CSS", icon: "https://cdn.simpleicons.org/css" },
-      { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-      { name: "React", icon: "https://cdn.simpleicons.org/react" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
-      { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap" },
+      { name: "HTML", icon: getAsset('assets/icons/html5.svg') },
+      { name: "CSS", icon: getAsset('assets/icons/css.svg') },
+      { name: "JavaScript", icon: getAsset('assets/icons/javascript.svg') },
+      { name: "React", icon: getAsset('assets/icons/react.svg') },
+      { name: "Tailwind CSS", icon: getAsset('assets/icons/tailwindcss.svg') },
+      { name: "Bootstrap", icon: getAsset('assets/icons/bootstrap.svg') },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "PHP", icon: "https://cdn.simpleicons.org/php" },
-      { name: "SQLite", icon: "https://cdn.simpleicons.org/sqlite" },
-      { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql" },
+      { name: "PHP", icon: getAsset('assets/icons/php.svg') },
+      { name: "SQLite", icon: getAsset('assets/icons/sqlite.svg') },
+      { name: "MySQL", icon: getAsset('assets/icons/mysql.svg') },
     ],
   },
   {
     category: "Languages",
     items: [
-      { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-      { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus" },
+      { name: "JavaScript", icon: getAsset('assets/icons/javascript.svg') },
+      { name: "C++", icon: getAsset('assets/icons/cplusplus.svg') },
     ],
   },
   {
     category: "Tools",
     items: [
-      { name: "Git", icon: "https://cdn.simpleicons.org/git" },
-      { name: "GitHub", icon: "https://cdn.simpleicons.org/github", invertDark: true },
+      { name: "Git", icon: getAsset('assets/icons/git.svg') },
+      { name: "GitHub", icon: getAsset('assets/icons/github.svg'), invertDark: true },
       { name: "VS Code", icon: getAsset('assets/vscode-logo.svg') },
-      { name: "Figma", icon: "https://cdn.simpleicons.org/figma" },
+      { name: "Figma", icon: getAsset('assets/icons/figma.svg') },
       { name: "Canva", icon: getAsset('assets/canva-logo.svg') },
       { name: "CapCut", icon: getAsset('assets/capcut-logo.svg'), darkTile: true },
     ],
@@ -86,12 +86,12 @@ export const skills = [
   {
     category: "Other Skills",
     items: [
-      { name: "Responsive Web Design", icon: "https://cdn.simpleicons.org/googlechrome" },
-      { name: "UI/UX Design", icon: "https://cdn.simpleicons.org/figma" },
+      { name: "Responsive Web Design", icon: getAsset('assets/icons/googlechrome.svg') },
+      { name: "UI/UX Design", icon: getAsset('assets/icons/figma.svg') },
       { name: "Video Editing", icon: getAsset('assets/capcut-logo.svg'), darkTile: true },
-      { name: "Social Media", icon: "https://cdn.simpleicons.org/instagram" },
+      { name: "Social Media", icon: getAsset('assets/icons/instagram.svg') },
       { name: "Prompt Engineering", icon: getAsset('assets/prompt-engineering-logo.svg') },
-      { name: "Event Management", icon: "https://cdn.simpleicons.org/googlecalendar" },
+      { name: "Event Management", icon: getAsset('assets/icons/googlecalendar.svg') },
     ],
   },
 ];
