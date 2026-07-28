@@ -112,10 +112,7 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
                 {/* Active Indicator */}
                 {isActive && (
-                  <motion.div
-                    layoutId="active-dot"
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full"
-                  />
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_8px_rgba(96,165,250,0.8)] transition-all duration-300 scale-100" />
                 )}
               </button>
             );
