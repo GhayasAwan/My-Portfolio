@@ -30,22 +30,29 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
       return;
     }
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      for (const item of navItems) {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(item.id);
-            break;
+          for (const item of navItems) {
+            const element = document.getElementById(item.id);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(item.id);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [forcedTab]);
 
