@@ -7,18 +7,21 @@ export default defineConfig({
   build: {
     target: 'esnext',
     cssCodeSplit: true,
+    modulePreload: {
+      polyfill: false,
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+            if (id.includes('react-dom')) {
+              return 'react-dom-vendor';
+            }
+            if (id.includes('react')) {
               return 'react-vendor';
             }
             if (id.includes('framer-motion')) {
               return 'framer-motion';
-            }
-            if (id.includes('lucide-react')) {
-              return 'lucide-react';
             }
           }
         },
