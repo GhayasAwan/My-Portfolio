@@ -33,14 +33,22 @@ const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType, theme, onThe
   }, []);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/GhayasAwan")
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.public_repos === "number") {
-          setStars(data.public_repos);
-        }
-      })
-      .catch((err) => console.error("Failed to fetch GitHub profile", err));
+    const fetchGitHub = () => {
+      fetch("https://api.github.com/users/GhayasAwan")
+        .then((res) => res.json())
+        .then((data) => {
+          if (typeof data.public_repos === "number") {
+            setStars(data.public_repos);
+          }
+        })
+        .catch((err) => console.error("Failed to fetch GitHub profile", err));
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(fetchGitHub, { timeout: 3000 });
+    } else {
+      setTimeout(fetchGitHub, 1500);
+    }
   }, []);
 
   return (
