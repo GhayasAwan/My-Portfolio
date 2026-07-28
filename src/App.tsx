@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import GlobalBackground from "./components/Background";
 import BottomNavBar from "./components/BottomNavBar";
-import TerminalMode from "./terminal/TerminalMode";
 import Hero from "./sections/Hero";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+
+const TerminalMode = lazy(() => import("./terminal/TerminalMode"));
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -108,10 +109,12 @@ const App = () => {
           )}
         </main>
       ) : (
-        <TerminalMode
-          setTerminalMode={handleTerminalToggle}
-          setUiType={handleUiToggle}
-        />
+        <Suspense fallback={<div className="min-h-screen bg-black text-green-500 font-mono p-8">Loading Terminal...</div>}>
+          <TerminalMode
+            setTerminalMode={handleTerminalToggle}
+            setUiType={handleUiToggle}
+          />
+        </Suspense>
       )}
     </div>
   );
