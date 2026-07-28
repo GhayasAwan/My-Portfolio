@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ghayas-dev-cache-v1';
+const CACHE_NAME = 'ghayas-dev-cache-v2';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -19,28 +19,32 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
   const url = new URL(event.request.url);
 
-  // Intercept static assets & CDNs for instant cache-first loading
-  if (
-    url.origin === location.origin ||
-    url.hostname.includes('simpleicons.org') ||
-    url.hostname.includes('googleapis.com') ||
-    url.hostname.includes('gstatic.com')
-  ) {
+  // Only handle static assets under /assets/ on local origin
+  if (url.origin === location.origin && url.pathname.includes('/assets/')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
-        const fetchPromise = fetch(event.request)
-          .then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              const responseToCache = networkResponse.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
-            }
-            return networkResponse;
-          })
-          .catch(() => cachedResponse);
+        if (cachedResponse) {
+          fetch(event.request)
+            .then((networkResponse) => {
+              if (networkResponse && networkResponse.ok) {
+                const responseToCache = networkResponse.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+              }
+            })
+            .catch(() => {});
+          return cachedResponse;
+        }
 
-        return cachedResponse || fetchPromise;
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.ok) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        });
       })
     );
   }
