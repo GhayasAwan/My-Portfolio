@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="Ghayas Awan is a Software Engineer building responsive websites, modern UI experiences, and practical digital products." />
+  <meta name="description"
+    content="Ghayas Awan is a Software Engineer building responsive websites, modern UI experiences, and practical digital products." />
   <meta name="author" content="Ghayas Awan" />
 
   <!-- Preconnect & DNS-Prefetch Domain Hints (Max 3 Essential Preconnects) -->
@@ -16,28 +17,37 @@
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
   <!-- Non-render-blocking Google Fonts Inter stylesheet -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
   </noscript>
 
   <!-- Preload LCP Hero Avatar Image for Instant Discovery -->
-  <link rel="preload" as="image" href="assets/ghayas-awan-hero-mobile.webp" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="/assets/ghayas-awan-hero-mobile.webp" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/ghayas-awan-hero.webp" type="image/webp" media="(min-width: 641px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="/assets/ghayas-awan-hero.webp" type="image/webp" media="(min-width: 641px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/ghayas-awan-hero-mobile.webp" type="image/webp" media="(max-width: 640px)"
+    fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/ghayas-awan-hero-mobile.webp" type="image/webp"
+    media="(max-width: 640px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/ghayas-awan-hero.webp" type="image/webp" media="(min-width: 641px)"
+    fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/ghayas-awan-hero.webp" type="image/webp" media="(min-width: 641px)"
+    fetchpriority="high" />
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ghayas Awan | Software Engineer" />
-  <meta property="og:description" content="Portfolio of Ghayas Awan, a Software Engineer focused on responsive web apps, UI/UX design, and digital experiences." />
+  <meta property="og:description"
+    content="Portfolio of Ghayas Awan, a Software Engineer focused on responsive web apps, UI/UX design, and digital experiences." />
   <meta property="og:url" content="https://ghayas.dev/" />
   <meta property="og:image" content="assets/ghayas-awan-hero.webp" />
   <meta property="og:image:alt" content="Ghayas Awan portfolio preview" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ghayas Awan | Software Engineer" />
-  <meta name="twitter:description" content="Software Engineer portfolio featuring responsive websites, UI design, and creative digital work." />
+  <meta name="twitter:description"
+    content="Software Engineer portfolio featuring responsive websites, UI design, and creative digital work." />
   <meta name="twitter:image" content="assets/ghayas-awan-hero.webp" />
 
   <!-- PWA Manifest & Meta -->
@@ -74,7 +84,7 @@
     if (document.readyState === 'complete') {
       setTimeout(loadAnalytics, 8000);
     } else {
-      window.addEventListener('load', function() {
+      window.addEventListener('load', function () {
         setTimeout(loadAnalytics, 8000);
       }, { once: true });
     }
@@ -83,8 +93,8 @@
   <!-- Service Worker Registration for Instant Asset Caching & PWA Support -->
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').catch(function() {});
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').catch(function () { });
       });
     }
   </script>
@@ -97,8 +107,9 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
 
+  <link rel="canonical" href="https://ghayas.dev/" />
+
   <title>Ghayas Awan | Software Engineer</title>
-</head>
 
 <body>
   <div id="root"></div>
