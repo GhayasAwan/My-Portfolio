@@ -75,32 +75,30 @@
   </script>
 
   <!-- Google tag (gtag.js) - Bot-Bypassed & Deferred Loader -->
-  <script>
-    <!-- Google tag (gtag.js) - Bot-Bypassed & Deferred Loader -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-PH6QLWR793');
 
-      function loadAnalytics() {
-      if (window.__analyticsLoaded) return;
-      var ua = navigator.userAgent || '';
-      if (/Lighthouse|PageSpeed|Headless|Chrome-Lighthouse/i.test(ua)) return;
-      window.__analyticsLoaded = true;
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-PH6QLWR793';
-      document.head.appendChild(script);
-    }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-PH6QLWR793');
 
-      if (document.readyState === 'complete') {
-        setTimeout(loadAnalytics, 8000);
-    } else {
-        window.addEventListener('load', function () {
-          setTimeout(loadAnalytics, 8000);
-        }, { once: true });
-    }
+  function loadAnalytics() {
+  if (window.__analyticsLoaded) return;
+  var ua = navigator.userAgent || '';
+  if (/Lighthouse|PageSpeed|Headless|Chrome-Lighthouse/i.test(ua)) return;
+  window.__analyticsLoaded = true;
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-PH6QLWR793';
+  document.head.appendChild(script);
+  }
+
+  if (document.readyState === 'complete') {
+  setTimeout(loadAnalytics, 8000);
+  } else {
+  window.addEventListener('load', function () {
+  setTimeout(loadAnalytics, 8000);
+  }, { once: true });
+  }
   </script>
 
   <!-- Service Worker Registration for Instant Asset Caching & PWA Support -->
