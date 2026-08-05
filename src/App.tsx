@@ -14,7 +14,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioSrc = `${import.meta.env.BASE_URL}assets/sound/portfolio-sound.ogg`;
+  const audioSrc = `${import.meta.env.BASE_URL}assets/sound/portfolio-sound.wav`;
 
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window !== "undefined") {
@@ -65,13 +65,12 @@ const App = () => {
         audio.volume = 1;
         audio.currentTime = 0;
         audio.loop = true;
+        audio.muted = false;
         await audio.play();
       } catch (error) {
         console.warn("Background audio could not start automatically:", error);
       }
     };
-
-    void startAudio();
 
     const handleUserInteraction = () => {
       void startAudio();
@@ -79,6 +78,7 @@ const App = () => {
 
     window.addEventListener("pointerdown", handleUserInteraction, { once: true });
     window.addEventListener("keydown", handleUserInteraction, { once: true });
+    window.addEventListener("click", handleUserInteraction, { once: true });
 
     return () => {
       window.removeEventListener("pointerdown", handleUserInteraction);
