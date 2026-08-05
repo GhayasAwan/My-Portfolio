@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import GlobalBackground from "./components/Background";
 import BottomNavBar from "./components/BottomNavBar";
@@ -13,6 +13,9 @@ const TerminalMode = lazy(() => import("./terminal/TerminalMode"));
 import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioSrc = `${import.meta.env.BASE_URL}assets/sound/WhatsApp%20Audio%202026-08-05%20at%2012.55.12%20AM.ogg`;
+
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window !== "undefined") {
       return (localStorage.getItem("site-theme") as "dark" | "light") || "dark";
@@ -52,6 +55,37 @@ const App = () => {
     localStorage.setItem("site-theme", nextTheme);
   };
 
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    const startAudio = async () => {
+      try {
+        audio.volume = 1;
+        audio.currentTime = 0;
+        audio.loop = true;
+        await audio.play();
+      } catch (error) {
+        console.warn("Background audio could not start automatically:", error);
+      }
+    };
+
+    void startAudio();
+
+    const handleUserInteraction = () => {
+      void startAudio();
+    };
+
+    window.addEventListener("pointerdown", handleUserInteraction, { once: true });
+    window.addEventListener("keydown", handleUserInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", handleUserInteraction);
+      window.removeEventListener("keydown", handleUserInteraction);
+    };
+  }, []);
+
   const renderModularUI = () => {
     switch (activeTab) {
       case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
@@ -64,7 +98,9 @@ const App = () => {
   };
 
   return (
-    <div className={`w-full min-h-screen bg-background text-foreground relative ${theme} theme-${theme}`}>
+    <>
+      <audio ref={audioRef} src={audioSrc} preload="auto" />
+      <div className={`w-full min-h-screen bg-background text-foreground relative ${theme} theme-${theme}`}>
       <GlobalBackground theme={theme} />
       <Navbar
         terminalMode={terminalMode}
@@ -116,7 +152,8 @@ const App = () => {
           />
         </Suspense>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 
