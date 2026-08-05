@@ -14,7 +14,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioSrc = `${import.meta.env.BASE_URL}assets/sound/portfolio-sound.ogg`;
+  const audioSrc = `${import.meta.env.BASE_URL}assets/sound/portfolio-sound.wav`;
 
   const [theme, setTheme] = useState<"dark" | "light">(() => {
     if (typeof window !== "undefined") {
